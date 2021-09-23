@@ -33,16 +33,15 @@ aliases:
       command: |
         sudo apt-get -y -qq update
         sudo apt-get install -y awscli
-    - &build-project
-      run:
-        name: Build Project
-        command: |
-          yarn install
-          yarn build
-          cd build
-          zip ../build.zip -r * .[^.]*
-          echo "Build completed"
-
+  - &build-project
+    run:
+      name: Build Project
+      command: |
+        yarn install
+        yarn build
+        cd build
+        zip ../build.zip -r * .[^.]*
+        echo "Build completed"
 
 jobs:
   build:
